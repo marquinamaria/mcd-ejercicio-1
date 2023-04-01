@@ -29,23 +29,27 @@ Paso 1: Descargar la imagen oficial de MySQL.
 docker pull mysql:latest
 ```
 
+Verificar que imágenes tienen instaladas
 
+```bash
+
+docker images
+```
 
 Paso 2: Ejecutar un contenedor MySQL utilizando los comandos y opciones requeridos.
 
 ```bash
 
-docker run --name my-mysql -p 3306:3306 -v my-mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
+docker run --name my-mysql -p 3306:3306 -v my-mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
 ```
-
-
 
 Explicación: 
 - `--name my-mysql`: Asigna el nombre "my-mysql" al contenedor. 
 - `-p 3306:3306`: Mapea el puerto 3306 del host al puerto 3306 del contenedor. 
 - `-v my-mysql-data:/var/lib/mysql`: Monta el volumen "my-mysql-data" en la ruta "/var/lib/mysql" del contenedor. 
-- `-e MYSQL_ROOT_PASSWORD=my-secret-pw`: Establece la variable de entorno "MYSQL_ROOT_PASSWORD" con el valor "my-secret-pw". 
+- `-e MYSQL_ROOT_PASSWORD=123456`: Establece la variable de entorno "MYSQL_ROOT_PASSWORD" con el valor "my-secret-pw". 
 - `-d`: Ejecuta el contenedor en modo "detached" (desacoplado).
+
 
 Paso 3: Verificar que el contenedor esté en ejecución.
 
@@ -92,7 +96,7 @@ docker rm -f my-mysql
 
 
 
-Paso 8: Verificar que el contenedor haya sido eliminado.
+Paso 8: Verificar que el contenedor haya sido eliminado. Aqui el atributo -a me muestra contenedores que esten o no, en ejecución.
 
 ```bash
 
